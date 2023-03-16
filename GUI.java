@@ -28,6 +28,13 @@ public class GUI extends JFrame
         int[] screenSize = new int[]{getScreenWidth(), getScreenHeight()};  
         return screenSize;
     }
+
+    public void createContainer()
+    {
+        JPanel container = new JPanel();
+        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        this.add(container);
+    }
     public static void main(String[] args) {
         GUI frame = new GUI("Philly Tree Map");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
