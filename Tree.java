@@ -43,21 +43,21 @@ public class Tree
     {
         this.DBH = DBH;
     }
-    public Tree(double x, double y, String type, double DBH)
+    public Tree(double x, double y, String type)
     {
         setXcor(x);
         setYcor(y);
         setTreeType(type);
-        setDBH(DBH);
+        //setDBH(DBH);
     }
 
     public Tree(double x, double y)
     {
-        this(x,y,"",0);
+        this(x,y,"");
     }
 
     public String toString()
     {
-        return "X-Cordinate: " + getXcor() + " Y-Cordinate: " + getYcor() + " Type: " + getTreeType() + " DBH: " + getDBH();
+        return "X-Cordinate: " + getXcor() + " Y-Cordinate: " + getYcor() + " Type: " + getTreeType();
     }
 }
