@@ -55,4 +55,9 @@ public class Tree
     {
         this(x,y,"",0);
     }
+
+    public String toString()
+    {
+        return "X-Cordinate: " + getXcor() + " Y-Cordinate: " + getYcor() + " Type: " + getTreeType() + " DBH: " + getDBH();
+    }
 }
