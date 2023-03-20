@@ -1,8 +1,8 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.*;
+
 
 public class Map extends BufferedImage
 {
@@ -34,11 +34,5 @@ public class Map extends BufferedImage
             System.out.println("ERROR: File Not Found");
             e.printStackTrace();
         }
-    }
-
-    public static void main(String args[])
-    {
-        Map map = new Map(500,621,BufferedImage.TYPE_INT_RGB);
-        map.loadMap("\\mapFiles\\PhilaCnty1854.png");
     }
 }
