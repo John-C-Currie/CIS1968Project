@@ -1,17 +1,9 @@
 import javax.swing.*;
+
+import java.awt.Dimension;
 import java.awt.Toolkit;
 public class GUI extends JFrame
 {
-    
-    public GUI()
-    {
-        super();
-    }
-
-    public GUI(String Title)
-    {
-        super(Title);
-    }
 
     public static int getScreenHeight()
     {
@@ -29,18 +21,15 @@ public class GUI extends JFrame
         return screenSize;
     }
 
-    public void createContainer()
-    {
-        JPanel container = new JPanel();
-        container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        this.add(container);
-    }
     public static void main(String[] args) {
-        GUI frame = new GUI("Philly Tree Map");
+        JFrame frame = new JFrame("Philly Tree Map");
+        JLabel label = new JLabel("");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(getScreenWidth(), getScreenHeight());
-        JButton button = new JButton("Press");
-        frame.getContentPane().add(button);
+        label.setIcon(new ImageIcon("PhilaCnty1854.png"));
+        Dimension size = label.getPreferredSize();
+        label.setBounds(0,0,size.width, getScreenHeight());
+        frame.getContentPane().add(label);
         frame.setVisible(true);
     }
 }
