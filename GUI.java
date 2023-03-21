@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 public class GUI extends JFrame
@@ -54,12 +55,15 @@ public class GUI extends JFrame
                 int notches = e.getWheelRotation();
                 if (notches < 0) {
                     zoomLevel += 10;
-                } else {
+                } else if (zoomLevel >= 50) {
                     zoomLevel -= 10;
                 }
-                label.setIcon(new ImageIcon(fileName));
+                ImageIcon imgIcon = new ImageIcon(fileName);
+                Image img = imgIcon.getImage();
+                Image newImg = img.getScaledInstance(zoomLevel, zoomLevel, java.awt.Image.SCALE_SMOOTH);
+                label.setIcon(new ImageIcon(newImg));
                 label.setPreferredSize(new Dimension(zoomLevel, zoomLevel));
-                frame.getContentPane().add(label);
+                //frame.getContentPane().add(label);
                 frame.pack();
                 frame.repaint();
             }
