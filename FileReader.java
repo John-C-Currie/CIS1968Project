@@ -7,7 +7,7 @@ public class FileReader
 {
     private ArrayList<Tree> trees = new ArrayList<Tree>();
 
-    public void lines(String filename)
+    public void lines(String filename) //adds every data point from csv file to the arraylist trees | the elements of each data point is the same as the id value of the tree in the csv file
     {
         trees.add(null);
         try
