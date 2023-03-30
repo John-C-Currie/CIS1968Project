@@ -105,6 +105,7 @@ public class GUI extends JFrame
             {
                 setMouseX(e.getX());
                 setMouseY(e.getY());
+                frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
             }        
         };
 
