@@ -1,5 +1,8 @@
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -7,11 +10,6 @@ import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
 public class GUI extends JFrame
 {
-    private JFrame frame;
-    private JLabel label;
-    private Container contentPane;
-    private JTextField textField;
-    private JPanel panel;
 
     private int mouseX, mouseY;
 
@@ -53,37 +51,49 @@ public class GUI extends JFrame
 
     public GUI(String fileName) //takes the name of the image file as a parameter, creates a JFrame with the image as a JLabel
     {
-        contentPane = getContentPane();
-        contentPane.setLayout(new BorderLayout());
+        Container contentPane = getContentPane();
+            contentPane.setLayout(new BorderLayout());
         
-        frame = new JFrame("Philly Tree Map");
-        label = new JLabel("");
-        panel = new JPanel();
-        label.setHorizontalAlignment(JLabel.CENTER);
-        label.setVerticalAlignment(JLabel.CENTER);
-        textField = new JTextField("Mouse Location");
-        textField.setEditable(true);
-        textField.setHorizontalAlignment(JTextField.CENTER);
-        textField.setText("Mouse Location");
-        textField.setSize(100,100);
-
-        panel.add(textField);
-        frame.add(panel, BorderLayout.SOUTH);
+        JFrame frame = new JFrame("Philly Tree Map");
+        
+        JLabel imgLabel = new JLabel("");
+            Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
+            imgLabel.setBorder(border);
+            ImageIcon imgIcon = new ImageIcon(fileName);
+            Image img = imgIcon.getImage();
+            //ImageIcon imgIconScaled = new ImageIcon(img.getScaledInstance(img.getWidth(null), img.getHeight(null), Image.SCALE_SMOOTH));
+            //imgLabel.setHorizontalAlignment(JLabel.CENTER);
+            //imgLabel.setVerticalAlignment(JLabel.CENTER);
+            //imgLabel.setMinimumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+            //imgLabel.setPreferredSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+            //imgLabel.setMaximumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+            imgLabel.setIcon(imgIcon);
+        
+        JPanel imgPanel = new JPanel();
+            imgPanel.add(imgLabel);
+            imgPanel.setPreferredSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+            imgPanel.setMinimumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+            imgPanel.setMaximumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
+            
+            
+            
         frame.setVisible(true);
-        contentPane.add(label, BorderLayout.CENTER);
+        contentPane.add(imgPanel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(getScreenWidth(), getScreenHeight());
-        label.setIcon(new ImageIcon(fileName));
-        frame.getContentPane().add(label);
         
-        JScrollPane scrollPane = new JScrollPane(label);
-        scrollPane.setPreferredSize(new Dimension(getScreenWidth(), getScreenHeight()));
-        frame.getContentPane().add(scrollPane);
+        
+        frame.getContentPane().add(imgPanel);
+        
+        //JScrollPane scrollPane = new JScrollPane(label);
+        //scrollPane.setPreferredSize(new Dimension(getScreenWidth(), getScreenHeight()));
+        //frame.getContentPane().add(scrollPane);
 
         MouseAdapter mouseAdapter = new MouseAdapter() {
-            private int zoomLevel = 100;
+           // private int zoomLevel = 100;
 
             @Override
+            /* 
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent e) {
                 int notches = e.getWheelRotation();
                 if (notches < 0) {
@@ -100,16 +110,19 @@ public class GUI extends JFrame
                 frame.pack();
                 frame.repaint();
             }
-
+            */
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {
+                //int panelXLoc = imgPanel.getLocation().x;
+                //int panelYLoc = imgPanel.getLocation().y;
+                
                 setMouseX(e.getX());
                 setMouseY(e.getY());
                 frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
             }        
         };
 
-        label.addMouseListener(mouseAdapter);
+        imgLabel.addMouseListener(mouseAdapter);
         pack();
         
         frame.setVisible(true);
