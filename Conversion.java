@@ -36,7 +36,16 @@ public class Conversion
         double height = pHeight/Integer.parseInt(dim.substring(0, dim.indexOf("x")));
         return height;
     }
+    
+    public static double widthToLong(double width, double WPP)
+    {
+        return pWest + (width * WPP);
+    }
 
+    public static double heightToLat(double height, double HPP)
+    {
+        return pNorth - (height * HPP);
+    }
     public static void main(String[] args) 
     {
         String x = getImageSize("PhilaCnty1854.png");
@@ -45,5 +54,8 @@ public class Conversion
         System.out.println(convertHeightPerPixel("PhilaCnty1854.png"));
         System.out.println(longFromPoint);
         
+        // example pixel at (250, 250)
+        System.out.println("Lat: " + heightToLat(250, convertHeightPerPixel("PhilaCnty1854.png")));
+        System.out.println("Long: " + widthToLong(250, convertWidthPerPixel("PhilaCnty1854.png")));
     }
 }
