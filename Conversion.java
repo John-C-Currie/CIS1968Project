@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 public class Conversion 
 {
+    //Philadelphia boundaries in decimal degrees
     static final double pNorth = 40.13800000;
     static final double pSouth = 39.86500000;
     static final double pEast = -74.94800000;
@@ -23,14 +24,14 @@ public class Conversion
         return imgWidth + "x" + imgHeight;
     }
 
-    public static double convertWidthPerPixel(String fileName)
+    public static double convertWidthPerPixel(String fileName) //returns the number of decimal degrees per pixel in the width of the given image
     {
         String dim = getImageSize(fileName);
         double width = pWidth/Integer.parseInt(dim.substring(dim.indexOf("x")+1, dim.length()));
         return width;
     }
 
-    public static double convertHeightPerPixel(String fileName)
+    public static double convertHeightPerPixel(String fileName)//returns the number of decimal degrees per pixel in the height of given image
     {
         String dim = getImageSize(fileName);
         double height = pHeight/Integer.parseInt(dim.substring(0, dim.indexOf("x")));

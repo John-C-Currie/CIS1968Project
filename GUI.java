@@ -27,7 +27,7 @@ public class GUI extends JFrame
         return screenSize;
     }
 
-    public GUI(String fileName)
+    public GUI(String fileName) //takes the name of the image file as a parameter, creates a JFrame with the image as a JLabel
     {
         contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
