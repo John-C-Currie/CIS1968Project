@@ -10,6 +10,10 @@ public class GUI extends JFrame
     private JFrame frame;
     private JLabel label;
     private Container contentPane;
+    private JTextField textField;
+    private JPanel panel;
+
+    private int mouseX, mouseY;
 
     public static int getScreenHeight()
     {
@@ -27,6 +31,26 @@ public class GUI extends JFrame
         return screenSize;
     }
 
+    public int getMouseX()
+    {
+        return mouseX;
+    }
+
+    public int getMouseY()
+    {
+        return mouseY;
+    }
+
+    public void setMouseX(int mouseX)
+    {
+        this.mouseX = mouseX;
+    }
+
+    public void setMouseY(int mouseY)
+    {
+        this.mouseY = mouseY;
+    }
+
     public GUI(String fileName) //takes the name of the image file as a parameter, creates a JFrame with the image as a JLabel
     {
         contentPane = getContentPane();
@@ -34,9 +58,18 @@ public class GUI extends JFrame
         
         frame = new JFrame("Philly Tree Map");
         label = new JLabel("");
+        panel = new JPanel();
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setVerticalAlignment(JLabel.CENTER);
+        textField = new JTextField("Mouse Location");
+        textField.setEditable(true);
+        textField.setHorizontalAlignment(JTextField.CENTER);
+        textField.setText("Mouse Location");
+        textField.setSize(100,100);
 
+        panel.add(textField);
+        frame.add(panel, BorderLayout.SOUTH);
+        frame.setVisible(true);
         contentPane.add(label, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(getScreenWidth(), getScreenHeight());
@@ -67,9 +100,15 @@ public class GUI extends JFrame
                 frame.pack();
                 frame.repaint();
             }
+
+            public void mouseClicked(java.awt.event.MouseEvent e) 
+            {
+                setMouseX(e.getX());
+                setMouseY(e.getY());
+            }        
         };
 
-        label.addMouseWheelListener(mouseAdapter);
+        label.addMouseListener(mouseAdapter);
         pack();
         
         frame.setVisible(true);
