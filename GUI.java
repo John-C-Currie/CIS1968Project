@@ -56,38 +56,50 @@ public class GUI extends JFrame
         
         JFrame frame = new JFrame("Philly Tree Map");
         
+        JPanel mainPanel = new JPanel();
+            mainPanel.setLayout(new BorderLayout());
+
         JLabel imgLabel = new JLabel("");
             Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
             imgLabel.setBorder(border);
             ImageIcon imgIcon = new ImageIcon(fileName);
             Image img = imgIcon.getImage();
-            //ImageIcon imgIconScaled = new ImageIcon(img.getScaledInstance(img.getWidth(null), img.getHeight(null), Image.SCALE_SMOOTH));
-            //imgLabel.setHorizontalAlignment(JLabel.CENTER);
-            //imgLabel.setVerticalAlignment(JLabel.CENTER);
-            //imgLabel.setMinimumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
-            //imgLabel.setPreferredSize(new Dimension(img.getWidth(null), img.getHeight(null)));
-            //imgLabel.setMaximumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
             imgLabel.setIcon(imgIcon);
         
+        JLabel textLabel = new JLabel("Click on the map to display the amount of trees in that area.");
+            textLabel.setHorizontalAlignment(JLabel.CENTER);
+            textLabel.setVerticalAlignment(JLabel.CENTER);
+            textLabel.setMinimumSize(new Dimension(621, 50));
+            textLabel.setMaximumSize(new Dimension(621, 50));
+            textLabel.setPreferredSize(new Dimension(621, 50));
+
+        JPanel textPanel = new JPanel();
+            textPanel.add(textLabel, BorderLayout.NORTH);
+            textPanel.setPreferredSize(new Dimension(621, 50));
+            textPanel.setMinimumSize(new Dimension(621, 50));
+            textPanel.setMaximumSize(new Dimension(621, 50));
+
         JPanel imgPanel = new JPanel();
-            imgPanel.add(imgLabel);
+            imgPanel.add(imgLabel, BorderLayout.CENTER);
             imgPanel.setPreferredSize(new Dimension(img.getWidth(null), img.getHeight(null)));
             imgPanel.setMinimumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
             imgPanel.setMaximumSize(new Dimension(img.getWidth(null), img.getHeight(null)));
-            
+        
+            textLabel.setPreferredSize(new Dimension(500, 50));
+            textLabel.setMinimumSize(new Dimension(500, 50));
+            textLabel.setMaximumSize(new Dimension(500, 50));
+        
+        mainPanel.add(imgPanel, BorderLayout.CENTER);
+        mainPanel.add(textPanel, BorderLayout.NORTH);
             
             
         frame.setVisible(true);
-        contentPane.add(imgPanel, BorderLayout.CENTER);
+        frame.add(textLabel, BorderLayout.NORTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(getScreenWidth(), getScreenHeight());
         
         
         frame.getContentPane().add(imgPanel);
-        
-        //JScrollPane scrollPane = new JScrollPane(label);
-        //scrollPane.setPreferredSize(new Dimension(getScreenWidth(), getScreenHeight()));
-        //frame.getContentPane().add(scrollPane);
 
         MouseAdapter mouseAdapter = new MouseAdapter() {
            // private int zoomLevel = 100;
