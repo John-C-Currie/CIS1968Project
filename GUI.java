@@ -128,6 +128,7 @@ public class GUI extends JFrame
                 setMouseX(e.getX());
                 setMouseY(e.getY());
                 frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
+                textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are " + 0 + " trees in this area.</center>");
             }        
         };
 
