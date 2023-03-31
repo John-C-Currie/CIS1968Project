@@ -38,12 +38,12 @@ public class Conversion
         return height;
     }
     
-    public static double widthToLong(double width, double WPP)
+    public static double widthToLong(int width, double WPP)
     {
         return pWest + (width * WPP);
     }
 
-    public static double heightToLat(double height, double HPP)
+    public static double heightToLat(int height, double HPP)
     {
         return pNorth - (height * HPP);
     }
