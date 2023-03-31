@@ -124,10 +124,7 @@ public class GUI extends JFrame
             }
             */
             public void mouseClicked(java.awt.event.MouseEvent e) 
-            {
-                //int panelXLoc = imgPanel.getLocation().x;
-                //int panelYLoc = imgPanel.getLocation().y;
-                
+            {                
                 setMouseX(e.getX());
                 setMouseY(e.getY());
                 frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
