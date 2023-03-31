@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FileReader 
 {
-    private ArrayList<Tree> trees = new ArrayList<Tree>();
+    private static ArrayList<Tree> trees = new ArrayList<Tree>();
 
     public void lines(String filename) //adds every data point from csv file to the arraylist trees | the elements of each data point is the same as the id value of the tree in the csv file
     {
@@ -30,6 +30,12 @@ public class FileReader
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<Tree> getList() 
+    {
+        return trees;
+    }
+
     public static void main(String args[])
     {
         FileReader read = new FileReader();

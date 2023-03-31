@@ -129,9 +129,8 @@ public class GUI extends JFrame
                 setMouseY(e.getY());
                 frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
 
-                //Selection pos = new Selection(getMouseX(), getMouseY());
-                //System.out.println(pos);
-                textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are " + 0 + " trees in a square mile from this point.</center>");
+                int near = getNearbyTrees(getMouseX(), getMouseY());
+                textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are " + near + " trees in a square mile from this point.</center>");
             }        
         };
 
