@@ -38,12 +38,12 @@ public class Conversion
         return height;
     }
     
-    public static double widthToLong(int width, double WPP)
+    public static double widthToLat(int width, double WPP)
     {
         return pWest + (width * WPP);
     }
 
-    public static double heightToLat(int height, double HPP)
+    public static double heightToLong(int height, double HPP)
     {
         return pNorth - (height * HPP);
     }
@@ -56,7 +56,7 @@ public class Conversion
         System.out.println(longFromPoint);
         
         // example pixel at (250, 250)
-        System.out.println("Lat: " + heightToLat(250, convertHeightPerPixel("PhilaCnty1854.png")));
-        System.out.println("Long: " + widthToLong(250, convertWidthPerPixel("PhilaCnty1854.png")));
+        System.out.println("Lat: " + heightToLong(250, convertHeightPerPixel("PhilaCnty1854.png")));
+        System.out.println("Long: " + widthToLat(250, convertWidthPerPixel("PhilaCnty1854.png")));
     }
 }

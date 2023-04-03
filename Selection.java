@@ -9,8 +9,8 @@ public class Selection  // class to find all nearby trees at a specific point on
     
     public static void setCordinates(int x, int y) //this is public so that it can be used in the GUI class
     {
-        xCoor = Conversion.widthToLong(x, WPP);
-        yCoor = Conversion.heightToLat(y, HPP);
+        xCoor = Conversion.widthToLat(x, WPP);
+        yCoor = Conversion.heightToLong(y, HPP);
     }
 
     public static int getNearbyTrees(int x, int y, ArrayList<Tree> trees)
@@ -20,14 +20,17 @@ public class Selection  // class to find all nearby trees at a specific point on
         System.out.println("This shouldn't be 0: " + trees.size());
         for (int i = 1; i < trees.size(); i++)
         {
+            //System.out.println(xCoor + " " + yCoor);
+            //System.out.println(trees.get(i).getXcor() + " " + trees.get(i).getYcor());
             Tree tree = FileReader.getList().get(i);
-            if (Math.abs(tree.getXcor() - xCoor) < Conversion.longFromPoint && 
-                Math.abs(tree.getYcor() - yCoor) < Conversion.latFromPoint)
+            if (Math.abs(tree.getXcor() - xCoor) < Conversion.latFromPoint && 
+                Math.abs(tree.getYcor() - yCoor) < Conversion.longFromPoint)
             {
                 count++;
             }
             
         }
+        System.out.println(count);
         return count;
     }
 

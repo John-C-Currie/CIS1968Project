@@ -43,10 +43,10 @@ public class Tree
     {
         this.DBH = DBH;
     }
-    public Tree(double x, double y, String type)
+    public Tree(double y, double x, String type)
     {
-        setXcor(x);
         setYcor(y);
+        setXcor(x);
         setTreeType(type);
         //setDBH(DBH);
     }
