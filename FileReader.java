@@ -16,7 +16,6 @@ public class FileReader
             scan.nextLine();
             while (scan.hasNextLine())
             {
-                //scan.useDelimiter(",");
                 String line = scan.nextLine();
                 String [] data = line.split(",");
                 trees.add(new Tree(Double.parseDouble(data[6]), Double.parseDouble(data[7]), data[3]));

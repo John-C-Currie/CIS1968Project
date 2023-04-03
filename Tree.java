@@ -48,7 +48,6 @@ public class Tree
         setYcor(y);
         setXcor(x);
         setTreeType(type);
-        //setDBH(DBH);
     }
 
     public Tree(double x, double y)

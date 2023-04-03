@@ -20,8 +20,6 @@ public class Selection  // class to find all nearby trees at a specific point on
         System.out.println("This shouldn't be 0: " + trees.size());
         for (int i = 1; i < trees.size(); i++)
         {
-            //System.out.println(xCoor + " " + yCoor);
-            //System.out.println(trees.get(i).getXcor() + " " + trees.get(i).getYcor());
             Tree tree = FileReader.getList().get(i);
             if (Math.abs(tree.getXcor() - xCoor) < Conversion.latFromPoint && 
                 Math.abs(tree.getYcor() - yCoor) < Conversion.longFromPoint)
@@ -30,7 +28,6 @@ public class Selection  // class to find all nearby trees at a specific point on
             }
             
         }
-        System.out.println(count);
         return count;
     }
 

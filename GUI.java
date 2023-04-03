@@ -106,27 +106,9 @@ public class GUI extends JFrame
         frame.getContentPane().add(imgPanel);
 
         MouseAdapter mouseAdapter = new MouseAdapter() {
-           // private int zoomLevel = 100;
 
             @Override
-            /* 
-            public void mouseWheelMoved(java.awt.event.MouseWheelEvent e) {
-                int notches = e.getWheelRotation();
-                if (notches < 0) {
-                    zoomLevel += 10;
-                } else if (zoomLevel >= 50) {
-                    zoomLevel -= 10;
-                }
-                ImageIcon imgIcon = new ImageIcon(fileName);
-                Image img = imgIcon.getImage();
-                Image newImg = img.getScaledInstance(zoomLevel, zoomLevel, java.awt.Image.SCALE_SMOOTH);
-                label.setIcon(new ImageIcon(newImg));
-                label.setPreferredSize(new Dimension(zoomLevel, zoomLevel));
-                //frame.getContentPane().add(label);
-                frame.pack();
-                frame.repaint();
-            }
-            */
+            
             public void mouseClicked(java.awt.event.MouseEvent e) 
             {                
                 setMouseX(e.getX());
