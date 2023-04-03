@@ -7,13 +7,13 @@ public class Selection  // class to find all nearby trees at a specific point on
     private static double WPP = Conversion.convertWidthPerPixel("PhilaCnty1854.png");
     private static double HPP = Conversion.convertHeightPerPixel("PhilaCnty1854.png");
     
-    public static void setCordinates(int x, int y)
+    public static void setCordinates(int x, int y) //this is public so that it can be used in the GUI class
     {
         xCoor = Conversion.widthToLong(x, WPP);
         yCoor = Conversion.heightToLat(y, HPP);
     }
 
-    public static int getNearbyTrees(int x, int y)
+    public static int getNearbyTrees(int x, int y, ArrayList<Tree> trees)
     {
         setCordinates(x, y);
         int count = 0;
@@ -34,7 +34,7 @@ public class Selection  // class to find all nearby trees at a specific point on
     public static void main(String args[])
     {
         FileReader read = new FileReader();
-        read.lines("tree2021.csv");
-        System.out.println(getNearbyTrees(274, 291));
+        read.lines("tree2022.csv");
+        System.out.println(getNearbyTrees(274, 291, trees));
     }
 }

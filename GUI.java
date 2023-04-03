@@ -8,10 +8,12 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
+import java.util.ArrayList;
 public class GUI extends JFrame
 {
 
     private int mouseX, mouseY;
+    //private static ArrayList<Tree> trees = new ArrayList<Tree>();
 
     public static int getScreenHeight()
     {
@@ -49,8 +51,11 @@ public class GUI extends JFrame
         this.mouseY = mouseY;
     }
 
-    public GUI(String fileName) //takes the name of the image file as a parameter, creates a JFrame with the image as a JLabel
+    public GUI(String fileName, String csvFileName) //takes the name of the image file and the name of the csv file as parameters, and displays the image file with the amount of trees in the area of the image that the user clicks on
     {
+        FileReader read = new FileReader();
+        read.lines(csvFileName);
+
         Container contentPane = getContentPane();
             contentPane.setLayout(new BorderLayout());
         
@@ -129,7 +134,7 @@ public class GUI extends JFrame
                 setMouseY(e.getY());
                 frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
 
-                int near = getNearbyTrees(getMouseX(), getMouseY());
+                int near = Selection.getNearbyTrees(getMouseX(), getMouseY(), Selection.trees);
                 textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are " + near + " trees in a square mile from this point.</center>");
             }        
         };
@@ -140,7 +145,8 @@ public class GUI extends JFrame
         frame.setVisible(true);
     }
 
-    public static void main(String[] args) {
-        GUI gui = new GUI("PhilaCnty1854.png");
+    public static void main(String[] args) 
+    {
+        GUI gui = new GUI("PhilaCnty1854.png", "tree2022.csv");
     }
 }
