@@ -119,7 +119,7 @@ public class GUI extends JFrame
                 if(near > 0)
                 textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are " + near + " trees in a square mile from this point.</center>");
                 else
-                textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are no recorded trees in this area at this time.</center>");
+                textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are currently no recorded trees in this area.</center>");
             }        
         };
 
