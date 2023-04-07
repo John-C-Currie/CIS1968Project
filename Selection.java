@@ -17,7 +17,6 @@ public class Selection  // class to find all nearby trees at a specific point on
     {
         setCordinates(x, y);
         int count = 0;
-        System.out.println("This shouldn't be 0: " + trees.size());
         for (int i = 1; i < trees.size(); i++)
         {
             Tree tree = FileReader.getList().get(i);
