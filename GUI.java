@@ -115,7 +115,6 @@ public class GUI extends JFrame
                 setMouseY(e.getY());
                 frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
 
-                Selection.setCordinates(getMouseX(), getMouseY());
                 int near = Selection.getNearbyTrees(getMouseX(), getMouseY(), Selection.trees);
                 if(near > 0)
                 textLabel.setText("<html>Click on the map to display the amount of trees in that area.<br>" + "<center>There are " + near + " trees in a square mile from this point.</center>");

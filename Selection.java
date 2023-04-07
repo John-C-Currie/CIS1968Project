@@ -7,7 +7,7 @@ public class Selection  // class to find all nearby trees at a specific point on
     private static double WPP = Conversion.convertWidthPerPixel("PhilaCnty1854.png");
     private static double HPP = Conversion.convertHeightPerPixel("PhilaCnty1854.png");
     
-    public static void setCordinates(int x, int y) //this is public so that it can be used in the GUI class
+    private static void setCoordinates(int x, int y)
     {
         xCoor = Conversion.widthToLat(x, WPP);
         yCoor = Conversion.heightToLong(y, HPP);
@@ -15,7 +15,7 @@ public class Selection  // class to find all nearby trees at a specific point on
 
     public static int getNearbyTrees(int x, int y, ArrayList<Tree> trees)
     {
-        setCordinates(x, y);
+        setCoordinates(x, y);
         int count = 0;
         for (int i = 1; i < trees.size(); i++)
         {
