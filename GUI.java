@@ -113,7 +113,6 @@ public class GUI extends JFrame
             {                
                 setMouseX(e.getX());
                 setMouseY(e.getY());
-                frame.setTitle("Mouse Location: " + getMouseX() + ", " + getMouseY());
 
                 int near = Selection.getNearbyTrees(getMouseX(), getMouseY(), Selection.trees);
                 if(near > 0)
